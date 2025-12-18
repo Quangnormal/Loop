@@ -1,6 +1,7 @@
 import requests
+import time
 
-def run_job():
+def run():
     URL = "https://mine.sttr.io/server/387558/poweraction"
     TOKEN = "VVI2bHIwYWU0SFRiWjhvdGVJV1pqdG41RFdjNzJmZU4="
 
@@ -19,11 +20,15 @@ def run_job():
 
     data = {"poweraction": "start"}
 
+    print("=== SEND START REQUEST ===", flush=True)
     r = requests.put(URL, headers=headers, json=data, timeout=10)
 
-    print(r.status_code)
-    print(r.text)
+    print("STATUS:", r.status_code, flush=True)
+    print("RESPONSE:", r.text, flush=True)
+
+    return r.status_code, r.text
 
 
+# Cho phép chạy độc lập (giữ nguyên hành vi code gốc)
 if __name__ == "__main__":
-    run_job()
+    run()
