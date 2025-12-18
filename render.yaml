@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: auto-ping-python
+    name: auto-ping-minestrator
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt
